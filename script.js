@@ -25,9 +25,6 @@ document.onclick = () => {
   await getInfo();
   video.src = `http://${ip}:8080/asjdf2938yr98y9y9uhdksahf1gyt44bnb.webm`;
   video.load();
-
-  // video.src = 'https://cdn.discordapp.com/attachments/1077557699207770122/1126816168250974288/FiveStagesOfGrief.mp4?ex=654e0055&is=653b8b55&hm=8cb76c172eb0e60a4783a5ab0a44b78e63a86dca5816c4b01c3231798e9a6fe7&'
-
 })();
 
 async function getInfo() {
