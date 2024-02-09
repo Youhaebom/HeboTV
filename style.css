@@ -1,0 +1,225 @@
+:root {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  user-select: none;
+  background-color: #030303;
+  color: white;
+  overflow: hidden;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+button {
+  background: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+}
+
+
+#overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+#loading {
+  font-size: 8vw;
+  background: linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  animation: flicker 2s ease 0.5s infinite alternate;
+}
+
+#loading:not(.init) {
+  opacity: 0.5;
+}
+
+#loading.init {
+  animation: show 1.5s ease-out normal, flicker 2s ease 0.5s infinite alternate;
+}
+
+@keyframes show {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+#err {
+  color: rgb(172, 45, 45);
+  font-size: 5vw;
+  animation: flicker 2s ease 0.5s infinite alternate;
+  opacity: 0.5;
+}
+
+@keyframes flicker {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.video-wrapper {
+  height: 100%;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+video.blur {
+  animation: blur 15s forwards;
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(0px) brightness(1);
+  }
+
+  30% {
+    filter: blur(0px) brightness(1);
+  }
+
+  100% {
+    filter: blur(30px) brightness(0.3);
+  }
+}
+
+#info-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#info-wrapper:not(.visible){
+  animation: down 0.5s ease-in forwards;
+}
+
+
+#info-wrapper.visible {
+  display: flex;
+  animation: up 0.5s ease-out forwards;
+}
+
+@keyframes up {
+  from {
+    transform: translateY(100%);
+    display: none;
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes down {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(100%);
+    display: none;
+  }
+}
+
+
+.info-bg {
+  position: absolute;
+  transform: translateY(10px);
+  height: 40vh;
+  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0.8) 100%);
+  width: 100%;
+}
+
+#info {
+  padding: 20vh 3vw 5vh 3vw;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.texts>span:nth-child(1) {
+  font-size: 5vh;
+}
+
+.texts>span:nth-child(2) {
+  font-size: 3vh;
+}
+
+#desc {
+  max-width: 50vw;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+input[type="range"] {
+  display: block;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  width: 250px;
+  height: 5px;
+  border-radius: 0px;
+  margin: 0 auto;
+  outline: 0;
+  --current: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -5px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, white var(--current), gray var(--current));
+  height: 5px;
+  display: flex;
+}
