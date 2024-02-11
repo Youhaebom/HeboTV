@@ -1,7 +1,11 @@
 <template>
   <div>
     <NuxtLayout>
-      <NuxtPage/>
+      <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
+
+<style>
+@import '@/assets/main.css';
+</style>
