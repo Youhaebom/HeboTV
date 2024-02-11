@@ -6,3 +6,26 @@
   background: black;
 }
 
+html,
+body,
+#__nuxt {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0;
+  overflow: hidden;
+}
+
+.center-h {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.center-v {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
